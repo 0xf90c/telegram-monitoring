@@ -686,7 +686,7 @@ function TelegramBubble({ event: e, apiBase, onClick, compact = false }: TgBubbl
   // ── EDITED — two bubbles (before + after) ─────────────────────────────────
   if (e.event_type === "edited_message") {
     return (
-      <div style={{display:"flex",flexDirection:"column",gap:3}} onClick={onClick} style_cursor={onClick ? "pointer" : undefined}>
+      <div style={{display:"flex",flexDirection:"column",gap:3,cursor:onClick ? "pointer" : undefined}} onClick={onClick}>
         <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:2}}>
           <span style={{fontSize:10,fontFamily:"monospace",fontWeight:700,padding:"2px 8px",borderRadius:12,background:"rgba(255,170,0,0.12)",color:"var(--neon-amber)",border:"1px solid rgba(255,170,0,0.3)"}}>✎ EDITED</span>
         </div>
