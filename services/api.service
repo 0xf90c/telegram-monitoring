@@ -1,0 +1,18 @@
+[Unit]
+Description=Telegram Monitoring API
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=%USER%
+WorkingDirectory=%DIR%
+EnvironmentFile=%DIR%/.env
+ExecStart=%DIR%/.venv/bin/uvicorn dashboard_api:app --host 0.0.0.0 --port 8000
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:%DIR%/logs/api.log
+StandardError=append:%DIR%/logs/api.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram Monitoring Dashboard
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=%USER%
+WorkingDirectory=%DIR%/telegram-dashboard
+ExecStart=/usr/bin/npm start
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:%DIR%/logs/dashboard.log
+StandardError=append:%DIR%/logs/dashboard.log
+
+[Install]
+WantedBy=multi-user.target
