@@ -1,0 +1,10 @@
+telethon
+fastapi
+uvicorn
+python-dotenv
+sqlalchemy
+aiosqlite
+cachetools
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart

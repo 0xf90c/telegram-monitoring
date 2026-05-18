@@ -1,0 +1,41 @@
+# ── Secrets & credentials ─────────────────────────────────────────────────────
+.env
+*.env
+.env.*
+
+# ── Telegram session (contains auth token — treat like a password) ────────────
+*.session
+*.session-journal
+
+# ── Database & media (runtime data, not source code) ─────────────────────────
+data/
+media/
+logs/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# ── IDE & tools ───────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+.claude/
+*.iml
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.rar
+*.zip
+test_con.py
+
+# ── Next.js ───────────────────────────────────────────────────────────────────
+telegram-dashboard/.next/
+telegram-dashboard/node_modules/
+telegram-dashboard/.env*.local
