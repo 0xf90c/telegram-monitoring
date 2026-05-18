@@ -7,9 +7,10 @@ Wants=network.target
 Type=simple
 User=%USER%
 WorkingDirectory=%DIR%/telegram-dashboard
-ExecStart=/usr/bin/npm start
+ExecStartPre=/bin/bash -c 'test -d %DIR%/telegram-dashboard/.next || (cd %DIR%/telegram-dashboard && npm install && npm run build)'
+ExecStart=%NPM% start
 Restart=on-failure
-RestartSec=5
+RestartSec=10
 StandardOutput=append:%DIR%/logs/dashboard.log
 StandardError=append:%DIR%/logs/dashboard.log
 

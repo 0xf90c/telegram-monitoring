@@ -6,6 +6,7 @@ set -e
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 USER_NAME="$(stat -c '%U' "$DIR")"
+NPM_PATH="$(which npm || echo /usr/bin/npm)"
 
 echo "📁  Project dir : $DIR"
 echo "👤  Running as  : $USER_NAME"
@@ -27,7 +28,7 @@ for svc in userbot api dashboard; do
   DEST="/etc/systemd/system/tg-$svc.service"
 
   # Replace placeholders
-  sed "s|%DIR%|$DIR|g; s|%USER%|$USER_NAME|g" "$SRC" > "$DEST"
+  sed "s|%DIR%|$DIR|g; s|%USER%|$USER_NAME|g; s|%NPM%|$NPM_PATH|g" "$SRC" > "$DEST"
 
   echo "   ✓ Installed: $DEST"
 done
